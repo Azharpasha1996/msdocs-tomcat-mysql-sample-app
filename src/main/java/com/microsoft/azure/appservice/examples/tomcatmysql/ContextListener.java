@@ -31,6 +31,7 @@ public class ContextListener implements ServletContextListener {
             logger.info("Detected Azure MySQL connection string. Adding Tomcat data source...");
             props.put("jakarta.persistence.nonJtaDataSource", "java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
         }
+        
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
         sce.getServletContext().setAttribute("EMFactory", emf);
